@@ -28,9 +28,6 @@
 #        regexp: "ms.machine"
 #        line: "ms.machine={{ansible_hostname}}"
 
-    - name: Instalando Managed
-      shell: su - weblogic -c "sh /tmp/instalar_Managed.sh"
-
     - name: Creando directorio de seguri1dad 
       file:
         path: "{{directorio_domi}}/domains/dominio/servers/{{ansible_hostname}}/security/"
@@ -57,6 +54,9 @@
         dest: /opt/oracle/weblogic/config/domains/dominio/bin/
         owner: weblogic
 
+    - name: Instalando Managed
+      shell: su - weblogic -c "sh /tmp/instalar_Managed.sh"
+      
     #- name: Iniciando Managed
     #  shell: su - weblogic -c "nohup sh {{directorio_domi}}/domains/dominio/bin/startManagedWebLogic.sh {{ansible_hostname}} &"
 
