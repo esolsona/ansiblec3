@@ -1,0 +1,6 @@
+- name: Instalar weblogic
+  hosts: all
+  become: true
+  roles: 
+    - role-wls-nodemanager-centos
+    - role-wls-managed-centos
